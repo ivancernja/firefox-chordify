@@ -1,3 +1,7 @@
-# chrome-extension
+# Transpose Extension for Firefox
 
-Enable developer mode at chrome://extensions, and select this unpacked dir as extension. Highly recommended to get "Extension Reloader", a chrome extension to easy reload extensions during developmen.
+You can install it in Firefox by:
+  1. Going to about:debugging
+  2. Clicking "This Firefox"
+  3. Clicking "Load Temporary Add-on"
+  4. Selecting the manifest.json file from the repository
