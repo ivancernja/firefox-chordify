@@ -1,0 +1,135 @@
+<html>
+<head><script src="popup.js" defer></script></head>
+<style>
+html {
+	min-width:230px;
+	background:#f7f4f2;
+	padding:0;
+	margin:0;
+	color: #333;
+}
+body {
+	padding:0;
+	margin:0;
+}
+#transposeUp, #transposeDown {
+	border: none;
+	background: none;
+	padding: 0;
+	margin: 0 3px 6px 3px;
+	width: 15px;
+	height: 15px;
+	background-size: cover;
+	cursor: pointer;
+}
+#transposeUp {
+	background-image: url('arrow-up.png')
+}
+#transposeDown {
+	background-image: url('arrow-down.png')
+}
+#transposeVal {
+	font-weight: bold;
+	cursor: pointer;
+	width: 16px;
+	line-height: 16px;
+	font-size: 14px;
+	display: inline-block;
+	text-align: center;
+	position: relative;
+	top: -3px;
+}
+a, a:visited {
+	color: #333;
+}
+#top {
+	background:#0A8282;
+	color:white;
+	padding-left: 14px;
+	line-height:32px;
+}
+#footer {
+	padding: 4px 4px 12px 20px;
+}
+.section {
+	background:white;
+	margin: 4px;
+	padding: 16px;
+	border-radius: 8px;
+	border: 1px solid #DFDFDF;
+	box-shadow: 0 6px 16px -8px rgba(0,0,0, .25);
+}
+.section h1 {
+	margin: 0;
+	font-size: 12px;
+}
+.section p {
+	margin-bottom: 0;
+}
+.premium-setlist,
+.section-dynamic,
+.youtube {
+	display: none;
+}
+.is-premium.is-player-supported .transposing,
+body:not(.is-player-supported):not(.is-youtube) .nosupport,
+.is-unsupported .unsupported-website,
+.is-free .go-premium,
+.is-free .premium-setlist,
+.is-youtube .youtube,
+.is-nosongpage .gotosong {
+	display: block;
+}
+
+</style>
+<body>
+<div id="top">
+	<img src="chordify-logo.png" height="32" style="float:left;"/> transpose
+</div>
+<div class="sections">
+	<div class="section section-dynamic go-premium">
+		<h1>Chordify Premium required</h1>
+		<p><a href="https://chordify.net/premium" target="_blank">Chordify Premium</a> is required to enable transposing of the chords and audio.</p>
+		<p class="premium-setlist">To try out this extension, play some songs in <a href="https://chordify.net/setlists/premium">this Premium setlist</a> and transpose the chords.</p>
+	</div>
+	<div class="section section-dynamic transposing">
+		<h1>Audio transposing is enabled</h1>
+		<p>
+			Use the Transpose buttons on this Chordify page and hear the audio change its pitch, reflecting the transpose setting and the chords.
+		</p>
+	</div>
+	<div class="section section-dynamic nosupport">
+		<h1>This song is not supported yet</h1>
+		<p>
+			Currently only songs streaming from YouTube are supported for audio transposing.
+		</p>
+	</div>
+
+	<div class="section section-dynamic gotosong">
+		<h1>This page is not a song</h1>
+		<p>Open a song to experience transposing the audio.</p>
+		<p class="premium-setlist">To try out this extension, play some songs in <a href="https://chordify.net/setlists/premium">this Premium setlist</a> and transpose the chords.</p>
+	</div>
+	<div class="section section-dynamic unsupported-website">
+		<h1>This is not Chordify</h1>
+		<p>Head over to <a href="https://chordify.net" target="_blank">chordify.net</a> for some jamming!</p>
+	</div>
+	<div class="youtube section-dynamic">
+		<div class="section">
+			<button id="transposeDown" title="Transpose one semitone down"></button>
+			<div id="transposeVal" title="Reset transposing">0</div>
+			<button id="transposeUp" title="Transpose one semitone up"></button>
+			<h1>Transpose</h1>
+		</div>
+		<div class="section">
+			<h1>Continue on Chordify</h1>
+			<p><a id="ytLink" href="https://chordify.net" target="_blank">Open this song on Chordify</a> for chords, transposing, changing speed, jamming and much more.</p>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<a href="https://support.chordify.net/hc/en-us" target="_blank">Support</a> - 
+	<a href="https://chromewebstore.google.com/detail/chordify-transpose-audio/mckabjbenkkimhkplcapjjhhpbkcfaha" target="_blank">Rate this extension</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+Some emaik thread with the guy from SignalsmithStretch, I needed help upgrading from an older to a newer version. 
+I haven't applied his suggestion yet:
+
+Hi Geraint
+
+in my code I also passed a config, because I was playing a bit with quality vs delaytime:
+
+ stretchNode.setState({
+        pitch: {semitones: transpose},
+        // Defaults I think is 120 / 30
+        // With blockMs below 70, and intervalMs at 30 you start to hear the cracks
+        // But because we have audio sync fixed (see inject.js), this is not an issue
+        //config: {blockMs: 30, intervalMs: 10}
+        config: {blockMs: blockMs, intervalMs: intervalMs}
+    });
+
+I'm not seeing this blockMs and intervalMs config on the new documentation page: https://www.npmjs.com/package/signalsmith-stretch
+
+I don't need this per se, but I just wanted to check if the defaults for this newer version are still 120 and 30ms? I use other code to offset the video timings to. synchronize playback with the chords.
+
+==================
+
+Hi Tijmen,
+
+Yep, those are still the defaults.  You can specify them with stretchNode.configure({...config...}), which I should also add to the docs!
+
+However, I just did a JS build on the chunked-computation branch.  If you use the JS releases from there, then as well as a new .latency() method (returning a Promise, resolving to latency in seconds), there's an optional "chunkedComputation" boolean flag in the config object.
+
+This spreads the computation out more evenly over time (which should be better for low-power devices), but adds one additional interval of latency.  So, if you call stretchNode.configure({splitComputation: true}), then stretchNode.latency() should return 0.15.
+
+Geraint
+
